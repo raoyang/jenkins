@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "source": "deploy.yaml",
+      "target": "#deployName#-deploy.yaml"
+    },
+    {
+      "source": "svc.yaml",
+      "target": "#deployName#-svc.yaml"
+    }
+  ]
+}

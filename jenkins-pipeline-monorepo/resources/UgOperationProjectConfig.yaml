@@ -1,0 +1,23 @@
+globalConfig:
+  deliveryGroup: ug-operation
+  defaultArgocdGitUrl: https://gitlab.h3yun.net/ug-global/ug-operation-argo/ug-operation-argo-code/ug-operation-argocd-yaml.git
+  defaultRegistry: image-acr.puboa.h3yun.net
+  defaultImagePath: ug-registry
+  dingTalkAccessToken: 712b66162b56d1a4a91ba040a87fc270a0bc08d7e104f339d1886dcf259dac1e
+  dingTalkSecret: SEC7ffead4e158c7ca2516a0a83c228ff6ad84c82c7f418e1335327f983b2b26919
+  gitlabUrl: https://gitlab.h3yun.net
+  gitlabProjectPath: ug-global/ug-operation-monorepo
+  gitlabApiTokenId: UgOperationMonorepoGitlabApiToken
+  # GITLAB部署的集群网络禁用了443，所有443端口访问需显示声明为8443
+  gitlabJenkinsMultibranchHookBaseUrl: https://jenkins-monorepo.puboa.h3yun.net:8443/project/ug-operation-monorepo/ug-operation-monorepo-multibranch
+  gitlabJenkinsMultibranchHookSecret: 621fc137939559c9b0cb0d442c5d622c
+  userDetails:
+    caojp:
+      telephone: 15813701355
+      dingTalkAccessToken: 712b66162b56d1a4a91ba040a87fc270a0bc08d7e104f339d1886dcf259dac1e
+      dingTalkSecret: SEC7ffead4e158c7ca2516a0a83c228ff6ad84c82c7f418e1335327f983b2b26919
+  teamLeader: caojp
+projects:
+  - ug-boss-server
+  - ug-operation-tool-server
+  - ug-boss-webapp

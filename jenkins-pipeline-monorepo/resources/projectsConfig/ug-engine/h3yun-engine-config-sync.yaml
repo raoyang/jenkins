@@ -1,0 +1,39 @@
+codeType: java
+codeDir: multi-tenant/h3yun-engine-config-sync
+buildDir: multi-tenant/h3yun-engine-config-sync
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-engine-config-sync-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-engine-multi-tenant-client
+cmdbConfig:
+  - key: 'init.all.zk.node'
+    validateType: NOT_BLANK
+    description: '是否初始化所有zdNode'
+  - key: 'k8s.service.namespace'
+    validateType: NOT_BLANK
+    description: '服务在k8s中的命名空间'
+  - key: 'k8s.service.port'
+    validateType: NOT_BLANK
+    description: '服务开放端口'
+  - key: 'lateinos.authine.h3yun.engine.zk.sync.limit'
+    validateType: NOT_BLANK
+    description: 'zk并发同步引擎个数'
+  - key: 'spring.datasource.password'
+    validateType: NOT_BLANK
+    description: 'engine config同步记录数据库密码'
+  - key: 'spring.datasource.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: 'engine config同步记录数据库jdbc地址'
+  - key: 'spring.datasource.username'
+    validateType: NOT_BLANK
+    description: 'engine config同步记录数据库登录用户名'
+  - key: 'zkServerHosts'
+    validateType: NOT_BLANK
+    description: 'zk服务地址'

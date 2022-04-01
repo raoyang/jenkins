@@ -1,0 +1,11 @@
+codeType: webapp
+codeDir: webadmin/athena-manage-webapp
+buildDir: webadmin/athena-manage-webapp
+buildType: docker
+buildBaseImage: webstatic
+packageTool: yarn
+deployYamlFileName: athena-manage-webapp-deploy.yaml
+deployBaseTemplate: webstatic-service
+projectMaintainer: linys
+route:
+  - serviceName: athena-manage-webapp

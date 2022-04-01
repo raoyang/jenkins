@@ -1,0 +1,13 @@
+codeType: java
+codeDir: multi-tenant/ug-engine-allocate-algorithm
+buildDir: multi-tenant/ug-engine-allocate-algorithm
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-engine-allocate-algorithm-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-engine-multi-tenant-client

@@ -1,0 +1,11 @@
+codeType: java
+codeDir: notice/ug-thirdparty-msgpush
+buildDir: notice/ug-thirdparty-msgpush
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-thirdparty-msgpush-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - notice/build.gradle
+  - notice/settings.gradle
+projectMaintainer: lijq

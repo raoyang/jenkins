@@ -1,0 +1,8 @@
+codeType: java
+codeDir: sdk/java-lateinos-paging-jdbc
+buildDir: sdk/java-lateinos-paging-jdbc
+buildType: jar
+rootSettings:
+  - sdk/java-lateinos-paging-jdbc/build.gradle
+  - sdk/java-lateinos-paging-jdbc/settings.gradle
+projectMaintainer: linys

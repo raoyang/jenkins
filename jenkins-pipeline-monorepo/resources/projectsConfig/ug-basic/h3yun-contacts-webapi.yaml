@@ -1,0 +1,11 @@
+codeType: java
+codeDir: corp/h3yun-contacts-webapi
+buildDir: corp/h3yun-contacts-webapi
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-contacts-webapi-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - corp/build.gradle
+  - corp/settings.gradle
+projectMaintainer: lijq

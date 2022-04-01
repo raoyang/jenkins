@@ -1,0 +1,8 @@
+codeType: dotnet
+codeDir: cleaner/h3yun-file-cleaner
+buildDir: cleaner/h3yun-file-cleaner/src/H3yun.File.Cleaner.Host
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: h3yun-file-cleaner-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj

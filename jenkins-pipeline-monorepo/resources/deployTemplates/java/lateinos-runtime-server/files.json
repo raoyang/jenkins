@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "source": "deploy.yaml",
+      "target": "#deployName#-deploy.yaml"
+    },
+    {
+      "source": "svc.yaml",
+      "target": "#deployName#-svc.yaml"
+    },
+    {
+      "source": "certs.yaml",
+      "target": "#deployName#-certs.yaml"
+    }
+  ]
+}

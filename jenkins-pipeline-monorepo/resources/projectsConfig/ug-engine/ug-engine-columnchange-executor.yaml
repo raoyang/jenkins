@@ -1,0 +1,12 @@
+codeType: dotnet
+codeDir: core/ug-engine-columnchange-executor/src
+buildDir: core/ug-engine-columnchange-executor/src/Ug.Engine.Columnchange.Executor.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: ug-engine-columnchange-executor-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj
+cmdbConfig:
+  - key: 'httptimeout'
+    validateType: NOT_BLANK
+    description: '请求超时时间(ms)'

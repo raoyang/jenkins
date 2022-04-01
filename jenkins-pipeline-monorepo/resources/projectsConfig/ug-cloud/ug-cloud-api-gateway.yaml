@@ -1,0 +1,14 @@
+codeType: java
+codeDir: gateway/ug-cloud-api-gateway
+buildDir: gateway/ug-cloud-api-gateway
+buildType: docker
+buildBaseImage: jdk8AndOpenresty
+deployYamlFileName: ug-cloud-api-gateway-deploy.yaml
+deployBaseTemplate: openresty-service
+deployVariables:
+  - key: 'nginxLogDir'
+    value: '/tmp/ug-cloud-api-gateway/logs'
+rootSettings:
+  - gateway/build.gradle
+  - gateway/settings.gradle
+projectMaintainer: lijq

@@ -1,0 +1,16 @@
+codeType: java
+codeDir: multi-tenant/h3yun-engine-register
+buildDir: multi-tenant/h3yun-engine-register
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: h3yun-engine-register-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+cmdbConfig:
+  - key: 'h3yun.engine.register.secret'
+    validateType: NOT_BLANK
+    description: '企业注册业务引擎消费者编码'

@@ -1,0 +1,15 @@
+codeType: dotnet
+codeDir: workflow/ug-workflow-task-executor/src
+buildDir: workflow/ug-workflow-task-executor/src/Host/Ug.Workflow.Task.Executor.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: ug-workflow-task-executor-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj
+cmdbConfig:
+  - key: 'triggerjob.request.timeout'
+    validateType: NOT_BLANK
+    description: '触发流程的请求超时时间（ms）'
+  - key: 'workflowtemplateJob.event.request.timeout'
+    validateType: NOT_BLANK
+    description: '流程模板变更的请求超时时间（ms）'

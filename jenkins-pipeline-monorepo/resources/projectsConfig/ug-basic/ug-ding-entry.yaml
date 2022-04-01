@@ -1,0 +1,11 @@
+codeType: java
+codeDir: corp/ug-ding-entry
+buildDir: corp/ug-ding-entry
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-ding-entry-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - corp/build.gradle
+  - corp/settings.gradle
+projectMaintainer: lijq

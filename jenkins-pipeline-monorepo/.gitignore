@@ -1,0 +1,9 @@
+.idea
+.vscode
+*.iml
+out
+/bin/
+.classpath
+.groovy/
+.project
+.settings/

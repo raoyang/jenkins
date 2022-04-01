@@ -1,0 +1,13 @@
+codeType: java
+codeDir: multi-tenant/ug-inactivecorp-scanner
+buildDir: multi-tenant/ug-inactivecorp-scanner
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-inactivecorp-scanner-deploy.yaml
+deployBaseTemplate: cronjob
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-engine-multi-tenant-client

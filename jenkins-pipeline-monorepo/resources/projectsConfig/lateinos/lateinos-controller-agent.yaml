@@ -1,0 +1,39 @@
+codeType: java
+codeDir: backend/controller-agent/lateinos-controller-agent
+buildDir: backend/controller-agent/lateinos-controller-agent
+buildType: docker
+buildBaseImage: jdk8AndOpenresty
+deployYamlFileName: lateinos-controller-agent-deploy.yaml
+deployBaseTemplate: openresty-service
+rootSettings:
+  - backend/controller-agent/build.gradle
+  - backend/controller-agent/settings.gradle
+projectMaintainer: wangli
+route:
+  - serviceName: lateinos-controller-agent
+# 以下注释不要删除，用于记录controller-agent中重要的配置节点
+#globalConfig:
+#  - key: '/lateinos/cluster/current_info'
+#    validateType: REGEX
+#    validateRule: '^\{[\s\S]*\"name\"\s*\:[\s\S]+\}\s*$'
+#    description: '当前集群信息，格式为
+#     {
+#       "name" : "ug-dev"
+#     }'
+#  - key: '/lateinos/cluster/tokens'
+#    validateType: NOT_BLANK
+#    validateRule: '集群访问的TOKEN节点'
+#  - key: '/lateinos/cluster/tokens/xxx'
+#    description: '存放允许访问controller-agent的token信息'
+#  - key: '/lateinos/cluster/out_clusters'
+#    description: '存放访问代理到外部集群的信息'
+#  - key: '/lateinos/cluster/out_clusters/ug-dev'
+#    description: '存放外部集群的配置信息，格式为
+#   {
+#     "name":"ug-dev",
+#     "controllerAgentHost": "controller.devoa.h3yun.net",
+#     "controllerAgentPort": 443,
+#     "controllerAgentProtocol": "https",
+#     "controllerAgentToken": "xxxx"
+#   }'
+

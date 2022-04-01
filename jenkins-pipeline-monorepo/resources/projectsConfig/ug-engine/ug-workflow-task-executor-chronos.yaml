@@ -1,0 +1,13 @@
+codeType: java
+codeDir: workflow/ug-workflow-task-executor-chronos
+buildDir: workflow/ug-workflow-task-executor-chronos
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-workflow-task-executor-chronos-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - workflow/build.gradle
+  - workflow/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-workflow-task-executor-chronos

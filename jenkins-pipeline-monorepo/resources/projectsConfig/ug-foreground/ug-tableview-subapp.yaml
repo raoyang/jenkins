@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-pc-apps/ug-tableview-subapp
+buildDir: ug-pc-apps/ug-tableview-subapp
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

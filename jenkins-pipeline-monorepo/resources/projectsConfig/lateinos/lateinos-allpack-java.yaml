@@ -1,0 +1,8 @@
+codeType: java
+codeDir: sdk/java
+buildDir: sdk/java
+buildType: jar
+rootSettings:
+  - sdk/java/build.gradle
+  - sdk/java/settings.gradle
+projectMaintainer: linys

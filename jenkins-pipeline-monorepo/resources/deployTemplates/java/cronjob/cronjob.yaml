@@ -1,0 +1,47 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  labels:
+    app: #deployName#
+    lateinos-apptype: cronjob
+    deploy-code-type: #codeType#
+    deploy-base-template: #deployBaseTemplate#
+  name: #deployName#-cronjob
+  namespace: #deployNamespace#
+spec:
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    metadata:
+      labels:
+        app: #deployName#
+        lateinos-apptype: cronjob
+        deploy-code-type: #codeType#
+        deploy-base-template: #deployBaseTemplate#
+    spec:
+      activeDeadlineSeconds: #ativeDeadlineSeconds#
+      backoffLimit: 6
+      completions: 1
+      parallelism: 1
+      template:
+        metadata:
+          labels:
+            app: #deployName#
+        spec:
+          containers:
+            - env:
+                - name: JAVA_OPTS
+                  value: '-server '
+                - name: JAVA_ARGS
+              image: #deployImage#
+              imagePullPolicy: IfNotPresent
+              name: #deployName#
+          dnsPolicy: ClusterFirst
+          hostIPC: true
+          restartPolicy: Never
+          schedulerName: default-scheduler
+          securityContext: {}
+          terminationGracePeriodSeconds: 30
+  schedule: #schedule#
+  successfulJobsHistoryLimit: 3
+  suspend: false

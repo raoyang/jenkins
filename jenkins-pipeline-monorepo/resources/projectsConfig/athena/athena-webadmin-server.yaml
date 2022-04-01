@@ -1,0 +1,58 @@
+codeType: java
+codeDir: webadmin/athena-webadmin-server
+buildDir: webadmin/athena-webadmin-server
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: athena-webadmin-server-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - webadmin/build.gradle
+  - webadmin/settings.gradle
+projectMaintainer: linys
+dependencies:
+  - athena-webadmin-client
+cmdbConfig:
+  - key: 'db.lateinos.password'
+    validateType: NOT_BLANK
+    description: '技术管理平台权限和用户管理DB密码'
+  - key: 'db.lateinos.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '技术管理平台权限和用户管理DB连接的地址'
+  - key: 'db.lateinos.username'
+    validateType: NOT_BLANK
+    description: '技术管理平台权限和用户管理DB里面用户名'
+  - key: 'login.url.protocol'
+    validateType: REGEX
+    validateRule: 'http|https'
+    description: '登录url协议'
+  - key: 'login.url.host'
+    validateType: NOT_BLANK
+    description: '登录url域名'
+  - key: 'security.rsa.publickey'
+    validateType: NOT_BLANK
+    description: '加密公钥'
+  - key: 'security.rsa.privatekey'
+    validateType: NOT_BLANK
+    description: '加密私钥'
+  - key: 'nginx.config.admin'
+    validateType: NOT_BLANK
+    description: nginx配置管理员（JSON的字符串数组）
+  - key: 'app.publish.appcode'
+    validateType: EXIST
+    description: '移动端应用发布流程，连接有格的appcode'
+  - key: 'app.publish.schemacode'
+    validateType: EXIST
+    description: '移动端应用发布流程，连接有格的schemacode'
+  - key: 'app.publish.authtoken'
+    validateType: EXIST
+    description: '移动端应用发布流程，连接有格验证的token'
+  - key: 'app.publish.properties'
+    validateType: EXIST
+    description: '移动端应用发布流程，有格发布表所需相关属性（json）'
+  - key: 'webconfig'
+    validateType: REGEX
+    validateRule: '^\{[\s\S]*}\s*$'
+    description: '给webapp使用的相关配置，如菜单项、swagger地址等（json)'
+route:
+  - serviceName: athena-webadmin-server

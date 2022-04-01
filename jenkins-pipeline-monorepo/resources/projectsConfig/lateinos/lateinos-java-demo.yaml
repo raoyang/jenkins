@@ -1,0 +1,14 @@
+codeType: java
+codeDir: backend/demo/lateinos-java-demo
+buildDir: backend/demo/lateinos-java-demo
+buildType: java
+buildBaseImage: jdk11
+deployYamlFileName: lateinos-java-demo-deploy.yaml
+deployBaseTemplate: stateless-service
+deployImageName: lateinos-java-demo
+rootSettings:
+  - backend/demo/build.gradle
+  - backend/demo/settings.gradle
+projectMaintainer: meiys
+dependencies:
+  - lateinos-dotnet-demo

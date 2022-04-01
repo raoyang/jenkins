@@ -1,0 +1,41 @@
+codeType: java
+codeDir: webadmin/athena-webadmin-gateway
+buildDir: webadmin/athena-webadmin-gateway
+buildType: docker
+buildBaseImage: jdk8AndOpenresty
+deployYamlFileName: athena-webadmin-gateway-deploy.yaml
+deployBaseTemplate: openresty-loadbalancer
+deployVariables:
+  - key: 'nginxLogDir'
+    value: '/tmp/athena-webadmin-gateway/logs'
+rootSettings:
+  - webadmin/build.gradle
+  - webadmin/settings.gradle
+projectMaintainer: linys
+cmdbConfig:
+  - key: 'webadmin.athena.host'
+    validateType: NOT_BLANK
+    description: '管理后台域名'
+  - key: 'webadmin.athena.host.ssl.crt.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: '管理后台域名证书CRT在配置中心的路径'
+  - key: 'webadmin.athena.host.ssl.key.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: '有格文件服务域名证书KEY对应的配置中心所在的路径'
+  - key: 'webadmin.virtual.env.enabled'
+    validateType: REGEX
+    validateRule: 'true|false'
+    description: '是否开启虚拟环境的支持， 如果开启，则subdomain的配置需要进行配置'
+  - key: 'subdomain.webadmin.athena.host.ssl.crt.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: '子域名通用证书CRT配置路径'
+  - key: 'subdomain.webadmin.athena.host.ssl.key.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: '子域名通用证书KEY配置路径'
+  - key: 'controller.agent.auth.token'
+    validateType: NOT_BLANK
+    description: '连接本集群的controller-agent的鉴权token'

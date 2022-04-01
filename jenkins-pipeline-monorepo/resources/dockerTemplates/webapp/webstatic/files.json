@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "source": "nginx.conf",
+      "target": "nginx.conf"
+    }
+  ]
+}

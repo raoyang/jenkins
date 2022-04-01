@@ -1,0 +1,37 @@
+codeType: dotnet
+codeDir: app-integration/h3yun-app-integration-dispatcher/src
+buildDir: app-integration/h3yun-app-integration-dispatcher/src/Application/H3yun.App.Integration.Dispatcher.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: h3yun-app-integration-dispatcher-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj
+cmdbConfig:
+  - key: 'datalog.retention.days'
+    validateType: NOT_BLANK
+    description: '同步表记录保留天数'
+  - key: 'datalog.task.interval'
+    validateType: NOT_BLANK
+    description: '执行清理同步表记录后间隔多少小时再执行下一次'
+  - key: 'errorhandler.ignore.errorcodesstring'
+    validateType: NOT_BLANK
+    description: '执行同步数据时,遇到这些错误码时忽略，多个错误码之间使用，隔开'
+  - key: 'mongodb.connectionstring'
+    validateType: REGEX
+    validateRule: '^mongodb://root:.+'
+    description: '同步记录存储的mongodb地址'
+  - key: 'mongodb.databasename'
+    validateType: NOT_BLANK
+    description: '同步表记录的数据库名'
+  - key: 'rocketmq.consumer.code'
+    validateType: NOT_BLANK
+    description: '同步数据消费者编码'
+  - key: 'rocketmq.consumer.messagetype'
+    validateType: NOT_BLANK
+    description: '同步表消费者消息队列类型'
+  - key: 'rocketmq.consumer.secret'
+    validateType: NOT_BLANK
+    description: '同步表消费者Secret'
+  - key: 'rocketmq.consumer.tag'
+    validateType: NOT_BLANK
+    description: '同步表消费者Tag'

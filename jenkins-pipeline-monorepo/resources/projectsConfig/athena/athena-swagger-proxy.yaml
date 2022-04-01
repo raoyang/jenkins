@@ -1,0 +1,13 @@
+codeType: java
+codeDir: webadmin/athena-swagger-proxy
+buildDir: webadmin/athena-swagger-proxy
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: athena-swagger-proxy-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - webadmin/build.gradle
+  - webadmin/settings.gradle
+projectMaintainer: wangli
+route:
+  - serviceName: athena-swagger-proxy

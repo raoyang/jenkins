@@ -1,0 +1,6 @@
+codeType: dotnet
+codeDir: core/h3yun-engine-dao/src
+buildDir: core/h3yun-engine-dao/src/Host/H3yun.Engine.Dao.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+projectMaintainer: wangj

@@ -1,0 +1,25 @@
+codeType: dotnet
+codeDir: core/h3yun-engine-file-operator/src
+buildDir: core/h3yun-engine-file-operator/src/H3yun.Engine.File.Operator.Host
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: h3yun-engine-file-operator-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj
+cmdbConfig:
+  - key: 'filestorage.storagekey'
+    validateType: NOT_BLANK
+    description: '文件存储的storageKey，TODO：后续从数据库读取，不需要配置'
+  - key: 'rocketmq.consumer.code'
+    validateType: NOT_BLANK
+    description: '文件操作消费者编码'
+  - key: 'rocketmq.consumer.messagetype'
+    validateType: NOT_BLANK
+    description: '文件操作消费者消息队列类型'
+  - key: 'rocketmq.consumer.secret'
+    validateType: NOT_BLANK
+    description: '文件操作消费者密钥'
+  - key: 'rocketmq.consumer.tag'
+    validateType: NOT_BLANK
+    description: '文件操作消费者tag'
+

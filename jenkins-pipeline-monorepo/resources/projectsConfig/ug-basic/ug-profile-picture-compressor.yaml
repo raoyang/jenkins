@@ -1,0 +1,11 @@
+codeType: java
+codeDir: corp/ug-profile-picture-compressor
+buildDir: corp/ug-profile-picture-compressor
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-profile-picture-compressor-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - corp/build.gradle
+  - corp/settings.gradle
+projectMaintainer: lijq

@@ -1,0 +1,33 @@
+codeType: java
+codeDir: ha/h3yun-engine-controller
+buildDir: ha/h3yun-engine-controller
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-engine-controller-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - ha/build.gradle
+  - ha/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-engine-ha-client
+cmdbConfig:
+  - key: 'spring.datasource.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '业务引擎高可用更新，shard模板与更新记录数据库地址'
+  - key: 'spring.datasource.username'
+    validateType: NOT_BLANK
+    description: '业务引擎高可用数据库用户名'
+  - key: 'spring.datasource.password'
+    validateType: NOT_BLANK
+    description: '业务引擎高可用数据库密码'
+  - key: 'template.image'
+    validateType: NOT_BLANK
+    description: '模板镜像地址'
+  - key: 'template.shard'
+    validateType: NOT_BLANK
+    description: '模板shard'
+  - key: 'template.version'
+    validateType: NOT_BLANK
+    description: '模板版本号'

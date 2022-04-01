@@ -1,0 +1,11 @@
+codeType: java
+codeDir: boss/ug-boss-server
+buildDir: boss/ug-boss-server
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-boss-server-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - boss/build.gradle
+  - boss/settings.gradle
+projectMaintainer: caojp

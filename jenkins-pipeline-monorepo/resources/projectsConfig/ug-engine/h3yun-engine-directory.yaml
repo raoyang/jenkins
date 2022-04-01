@@ -1,0 +1,23 @@
+codeType: java
+codeDir: multi-tenant/h3yun-engine-directory
+buildDir: multi-tenant/h3yun-engine-directory
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: h3yun-engine-directory-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+cmdbConfig:
+  - key: 'spring.datasource.password'
+    validateType: NOT_BLANK
+    description: 'engine config数据库密码'
+  - key: 'spring.datasource.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: 'engine config数据库jdbc地址'
+  - key: 'spring.datasource.username'
+    validateType: NOT_BLANK
+    description: 'engine config数据库登录用户名'

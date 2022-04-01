@@ -1,0 +1,30 @@
+codeType: java
+codeDir: datachanged/ug-engine-datachanged-history
+buildDir: datachanged/ug-engine-datachanged-history
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-engine-datachanged-history-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - datachanged/build.gradle
+  - datachanged/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-engine-datachanged-client
+cmdbConfig:
+  - key: 'mongodb.connectionString'
+    validateType: REGEX
+    validateRule: '^mongodb://root:.+'
+    description: '数据变更历史记录存储的mongodb地址'
+  - key: 'mongodb.databaseName'
+    validateType: NOT_BLANK
+    description: '数据变更历史记录的mongodb的数据库名称'
+  - key: 'mongodb.collectionName.boChangedHistory'
+    validateType: NOT_BLANK
+    description: '数据变更历史记录的mongodb的集合名称'
+  - key: 'mongodb.expireAfterDays'
+    validateType: NOT_BLANK
+    description: '数据变更历史记录的mongodb的过期天数，TODO-需要确认是否还有用'
+  - key: 'rocketmq.consumer.secret'
+    validateType: NOT_BLANK
+    description: '数据变更历史消费者secret'

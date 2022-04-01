@@ -1,0 +1,13 @@
+codeType: webapp
+codeDir: engine-admin/h3yun-engine-admin-webapp
+buildDir: engine-admin/h3yun-engine-admin-webapp
+buildType: docker
+buildBaseImage: webstatic
+deployYamlFileName: h3yun-engine-admin-webapp-deploy.yaml
+deployBaseTemplate: webstatic-service
+rootSettings:
+  - engine-admin/build.gradle
+  - engine-admin/settings.gradle
+projectMaintainer: wangj
+packageTool: npm
+dependencies:

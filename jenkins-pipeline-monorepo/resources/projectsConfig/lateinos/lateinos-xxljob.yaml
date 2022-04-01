@@ -1,0 +1,9 @@
+codeType: java
+codeDir: thirdparty/xxljob/java
+buildDir: thirdparty/xxljob/java
+packageTool: maven
+buildType: docker
+buildBaseImage: jdk8
+deployBaseTemplate: stateless-service
+deployYamlFileName: lateinos-xxljob-deploy.yaml
+projectMaintainer: linys

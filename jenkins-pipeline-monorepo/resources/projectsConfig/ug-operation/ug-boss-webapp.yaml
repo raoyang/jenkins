@@ -1,0 +1,11 @@
+codeType: webapp
+codeDir: boss/ug-boss-webapp
+buildDir: boss/ug-boss-webapp
+buildType: docker
+buildBaseImage: webstatic
+packageTool: yarn
+deployYamlFileName: ug-boss-webapp-deploy.yaml
+deployBaseTemplate: webstatic-service
+projectMaintainer: caojp
+route:
+  - serviceName: ug-boss-webapp

@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-pc-apps/ug-formview-subapp
+buildDir: ug-pc-apps/ug-formview-subapp
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

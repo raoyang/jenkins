@@ -1,0 +1,7 @@
+codeType: java
+codeDir: autotest/ug-engine-autotest
+buildDir: autotest/ug-engine-autotest
+rootSettings:
+  - autotest/build.gradle
+  - autotest/settings.gradle
+projectMaintainer: wangj

@@ -1,0 +1,60 @@
+codeType: java
+codeDir: backend/api-server/lateinos-api-server
+buildDir: backend/api-server/lateinos-api-server
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: lateinos-api-server-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - backend/api-server/build.gradle
+  - backend/api-server/settings.gradle
+projectMaintainer: linys
+dependencies:
+  - lateinos-api-server-client
+cmdbConfig:
+  - key: 'db.lateinos.password'
+    validateType: NOT_BLANK
+    description: '应用信息管理和移动端推送设备注册DB连接的密码'
+  - key: 'db.lateinos.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '应用信息管理和移动端推送设备注册DB连接的地址'
+  - key: 'db.lateinos.password'
+    validateType: NOT_BLANK
+    description: '应用信息管理和移动端推送设备注册DB连接的密码'
+  - key: 'app.env-list'
+    validateType: REGEX
+    validateRule: '^\[[\s\S]*\]\s*$'
+    description: '移动端APP的环境列表, JSON格式'
+  - key: 'app.push.enabled'
+    validateType: REGEX
+    validateRule: 'true|false'
+    description: '移动端PUSH是否启用'
+  - key: 'app.push.tpns.access-info'
+    validateType: REGEX
+    validateRule: '^\[[\s\S]*\]\s*$'
+    description: '移动端推送TPNS的鉴权信息'
+  - key: 'kafka.app-push.bootstrap-servers'
+    validateType: NOT_BLANK
+    description: '移动端推送消息Kafaka集群连接地址'
+  - key: 'kafka.app-push.group-id'
+    validateType: NOT_BLANK
+    description: '移动端推送Kafaka集群的GroupID'
+  - key: 'kafka.app-push.topic'
+    validateType: NOT_BLANK
+    description: '移动端推送的消息的主题'
+storage:
+  - storageKey: pct_data
+    ignoreCluster:
+      - ug-public
+route:
+  - serviceName: lateinos-api-server
+  - serviceName: lateinos-fs-server
+  - serviceName: lateinos-version-config
+  - serviceName: lateinos-app-mobile-dao
+  - serviceName: lateinos-fs-webapi
+  - serviceName: lateinos-fs-version-api
+  - serviceName: lateinos-mobile-config
+  - serviceName: lateinos-pct-webapi
+  - serviceName: lateinos-version-webapi
+  - serviceName: lateinos-data-reporting

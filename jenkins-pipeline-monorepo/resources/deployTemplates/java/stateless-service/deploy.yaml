@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: #deployName#
+    lateinos-apptype: service
+    deploy-code-type: #codeType#
+    deploy-base-template: #deployBaseTemplate#
+  name: #deployName#-deploy
+  namespace: #deployNamespace#
+spec:
+  replicas: #deployReplicas#
+  selector:
+    matchLabels:
+      argocd-app-name: #deployName#-deploy
+      argocd-app-namespace: #deployNamespace#
+  strategy:
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: #deployName#
+        argocd-app-name: #deployName#-deploy
+        argocd-app-namespace: #deployNamespace#
+        lateinos-apptype: service
+        deploy-code-type: #codeType#
+        deploy-base-template: #deployBaseTemplate#
+        image-tag: to-replace
+    spec:
+      containers:
+        - env:
+            - name: JAVA_OPTS
+              value: ' -server'
+            - name: JAVA_ARGS
+          image: #deployImage#
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /v1/heartbeat/ping
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: #deployName#
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 1234
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /v1/heartbeat/ping
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          volumeMounts:
+            - mountPath: /data/logcollector
+              name: eventlog-mount
+      dnsPolicy: ClusterFirst
+      hostIPC: true
+      restartPolicy: Always
+      volumes:
+        - hostPath:
+            path: /data/logcollector
+            type: ''
+          name: eventlog-mount

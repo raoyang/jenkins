@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: external/ug-external-webapp
+buildDir: external/ug-external-webapp
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

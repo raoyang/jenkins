@@ -1,0 +1,8 @@
+codeType: dotnet
+codeDir: infra/ug-shortlink-dao/src
+buildDir: infra/ug-shortlink-dao/src/Host/Ug.Shortlink.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: ug-shortlink-dao-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: lijq

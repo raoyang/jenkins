@@ -1,0 +1,12 @@
+codeType: polymer
+codeDir: ug-pc-apps
+buildDir: ug-pc-apps
+projectMaintainer: chenjun
+dependencies:
+  - ug-pc-main
+  - ug-membermanage-subapp
+  - ug-workflow-subapp
+  - ug-tableview-subapp
+  - ug-formview-subapp
+  - ug-kanban-subapp
+  - ug-gantt-subapp

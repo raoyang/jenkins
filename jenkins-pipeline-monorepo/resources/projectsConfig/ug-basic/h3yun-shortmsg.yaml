@@ -1,0 +1,11 @@
+codeType: java
+codeDir: notice/h3yun-shortmsg
+buildDir: notice/h3yun-shortmsg
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-shortmsg-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - notice/build.gradle
+  - notice/settings.gradle
+projectMaintainer: lijq

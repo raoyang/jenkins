@@ -1,0 +1,113 @@
+codeType: dotnet
+codeDir: backend/demo/lateinos-dotnet-demo
+buildDir: backend/demo/lateinos-dotnet-demo/src/Host/Lateinos.Dotnet.Demo.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: lateinos-dotnet-demo-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: linys
+dependencies:
+  - lateinos-controller-agent
+globalConfig:
+  - key: /lateinos/route/demo-eventlog-java-dao
+    validateType: REGEX
+    validateRule: \S+
+    description: 描述信息
+  - key: /lateinos/route/demo-eventlog-java-service
+    validateType: EXIST
+    description: 描述信息
+virtualEnvConfig:
+  - key: logger/service|linys-demoservice-xxx
+    validateType: REGEX
+    validateRule: \S+
+    description: 描述信息
+    ignoreVirtualEnv:
+      - meiys-dev
+  - key: logger/daemon|deamon-test-xxx
+    validateType: NOT_BLANK
+    description: 描述信息
+    ignoreVirtualEnv:
+      - meiys-dev
+cmdbConfig:
+  - key: app.push.access-info-xxx
+    validateType: REGEX
+    validateRule: \S+
+    description: 描述信息
+    ignoreCluster:
+      - ug-dev
+  - key: '@app.push.access-info-xxx'
+    validateType: NOT_BLANK
+    description: 描述信息
+    ignoreCluster:
+      - ug-dev
+route:
+  - serviceName: lateinos-dotnet-demo-xxx
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+  - serviceName: accesstokenmeta-service
+idMaker:
+  - type: 1
+  - type: -1
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+storage:
+  - storageKey: wxtool
+  - storageKey: wxtool-xxx
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+rocketMq:
+  - type: producer
+    topic: TOP_dev_lateinos_corp_register
+    code: h3yun-corp-register-message
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+  - type: consumer
+    topic: TOP_dev_lateinos_corp_register
+    code: h3yun-corp-register-message
+logcollector:
+  - eventKey: activity-page-active-event
+    collector:
+      type: filebeat
+      code: logcollector
+    channel:
+      type: logstash
+      code: biworld
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+  - eventKey: h3yun-appletter-message-push
+    collector:
+      type: filebeat
+      code: logcollector
+redis:
+  - cacheCode: h3yun-notice-daemon
+  - cacheCode: h3yun-notice-daemon-xxx
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+distributedLock:
+  - code: dleads-to-h3yun
+  - code: dleads-to-h3yun-xxx
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev
+asyncTask:
+  - taskTypeId: ug-cloud-schema-addControl
+    scheduleKey: ug-cloud-schema-executor
+  - taskTypeId: ug-cloud-schema-addControl-xxx
+    scheduleKey: ug-cloud-schema-executor-xxx
+    ignoreCluster:
+      - ug-dev
+    ignoreVirtualEnv:
+      - meiys-dev

@@ -1,0 +1,37 @@
+codeType: java
+codeDir: corp/h3yun-corp-dao
+buildDir: corp/h3yun-corp-dao
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-corp-dao-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - corp/build.gradle
+  - corp/settings.gradle
+projectMaintainer: lijq
+cmdbConfig:
+  - key: corpinfo.changed.mq.producer.secret
+    validateType: NOT_BLANK
+    description: '团队信息变更mq消息密钥'
+  - key: h3yun.dingding.suite.key
+    validateType: NOT_BLANK
+    description: '钉钉套件键'
+  - key: h3yun.dingding.suite.secret
+    validateType: NOT_BLANK
+    description: '钉钉套件密钥'
+  - key: h3yun.dingding.corp.id
+    validateType: NOT_BLANK
+    description: '钉钉团队ID'
+  - key: h3yun.dingding.suite.id
+    validateType: NOT_BLANK
+    description: '钉钉套件ID'
+  - key: spring.datasource.url
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: 'DB的连接地址'
+  - key: spring.datasource.username
+    validateType: NOT_BLANK
+    description: 'DB用户名'
+  - key: spring.datasource.password
+    validateType: NOT_BLANK
+    description: 'DB密码'

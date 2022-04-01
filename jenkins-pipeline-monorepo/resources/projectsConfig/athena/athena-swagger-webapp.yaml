@@ -1,0 +1,12 @@
+codeType: webapp
+codeDir: webadmin/athena-swagger-webapp
+buildDir: webadmin/athena-swagger-webapp
+buildType: docker
+buildBaseImage: webstatic
+packageTool: yarn
+targetStaticDir: build
+deployYamlFileName: athena-swagger-webapp-deploy.yaml
+deployBaseTemplate: webstatic-service
+projectMaintainer: wangli
+route:
+  - serviceName: athena-swagger-webapp

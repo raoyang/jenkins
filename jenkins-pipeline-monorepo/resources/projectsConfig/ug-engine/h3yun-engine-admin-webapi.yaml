@@ -1,0 +1,12 @@
+codeType: java
+codeDir: engine-admin/h3yun-engine-admin-webapi
+buildDir: engine-admin/h3yun-engine-admin-webapi
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: h3yun-engine-admin-webapi-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - engine-admin/build.gradle
+  - engine-admin/settings.gradle
+projectMaintainer: wangj
+dependencies:

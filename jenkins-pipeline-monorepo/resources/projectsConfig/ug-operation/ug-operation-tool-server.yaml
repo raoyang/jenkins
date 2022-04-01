@@ -1,0 +1,11 @@
+codeType: java
+codeDir: operation-tool/ug-operation-tool-server
+buildDir: operation-tool/ug-operation-tool-server
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-operation-tool-server-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - operation-tool/build.gradle
+  - operation-tool/settings.gradle
+projectMaintainer: caojp

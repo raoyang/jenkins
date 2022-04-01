@@ -1,0 +1,12 @@
+codeType: java
+codeDir: autotest/ug-cloud-qa-autotest
+buildDir: autotest/ug-cloud-qa-autotest
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-cloud-qa-autotest-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - autotest/build.gradle
+  - autotest/settings.gradle
+projectMaintainer: lijq
+cmdbConfig:

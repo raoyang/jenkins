@@ -1,0 +1,4 @@
+codeType: js-sdk
+codeDir: lcos-kernel
+buildDir: lcos-kernel
+projectMaintainer: chenjun

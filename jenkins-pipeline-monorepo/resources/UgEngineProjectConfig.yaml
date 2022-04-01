@@ -1,0 +1,71 @@
+globalConfig:
+  deliveryGroup: ug-engine
+  defaultArgocdGitUrl: https://gitlab.h3yun.net/ug-global/ug-engine-argo/ug-engine-argo-code/ug-engine-argocd-yaml.git
+  defaultRegistry: image-acr.puboa.h3yun.net
+  defaultImagePath: ug-registry
+  dingTalkAccessToken: 823bacd9c0843ee2f6a46a550f19de62ab3a3e9c9ad6b2defe67accdf1d64e35
+  dingTalkSecret: SEC9adff0c28e1496091b36c8094a4b2eef19918e7bdfa450e01e2e67e4baab062c
+  gitlabUrl: https://gitlab.h3yun.net
+  gitlabProjectPath: ug-global/ug-engine-monorepo
+  gitlabApiTokenId: UgEngineMonorepoGitLabApiToken
+  # GITLAB部署的集群网络禁用了443，所有443端口访问需显示声明为8443
+  gitlabJenkinsMultibranchHookBaseUrl: https://jenkins-monorepo.puboa.h3yun.net:8443/project/ug-engine-monorepo/ug-engine-monorepo-multibranch
+  gitlabJenkinsMultibranchHookSecret: 621fc137939559c9b0cb0d442c5d622c
+  userDetails:
+    wangj:
+      telephone: 13794489532
+      dingTalkAccessToken: d0cee69554d37fd4b5d7004b02e26440decffae15a373ad39867f42cd8979f98
+      dingTalkSecret: SECcc77753211c5bc065d29fa2996575466e5eee290be076a9fabeec9ccbd93eed1
+    liqy:
+      telephone: 1310769295
+      dingTalkAccessToken: 823bacd9c0843ee2f6a46a550f19de62ab3a3e9c9ad6b2defe67accdf1d64e35
+      dingTalkSecret: SEC9adff0c28e1496091b36c8094a4b2eef19918e7bdfa450e01e2e67e4baab062c
+    raoyang:
+      telephone: 18575501014
+      dingTalkAccessToken: 823bacd9c0843ee2f6a46a550f19de62ab3a3e9c9ad6b2defe67accdf1d64e35
+      dingTalkSecret: SEC9adff0c28e1496091b36c8094a4b2eef19918e7bdfa450e01e2e67e4baab062c
+    pengzhiy:
+      telephone: 13723426606
+      dingTalkAccessToken: 823bacd9c0843ee2f6a46a550f19de62ab3a3e9c9ad6b2defe67accdf1d64e35
+      dingTalkSecret: SEC9adff0c28e1496091b36c8094a4b2eef19918e7bdfa450e01e2e67e4baab062c
+    liucm:
+      telephone: 15090090030
+      dingTalkAccessToken: 823bacd9c0843ee2f6a46a550f19de62ab3a3e9c9ad6b2defe67accdf1d64e35
+      dingTalkSecret: SEC9adff0c28e1496091b36c8094a4b2eef19918e7bdfa450e01e2e67e4baab062c
+  teamLeader: wangj
+projects:
+  - ug-engine-statistics-client
+  - ug-engine-statistics
+  - ug-engine-activecorp-collector
+  - ug-engine-datachanged-history
+  - ug-engine-datachanged-dispatcher
+  - ug-engine-datachanged-client
+  - h3yun-file-cleaner
+  - h3yun-engine-file-operator
+  - ug-engine-columnchange-executor
+  - ug-engine-metadata-dao
+  - h3yun-workflow-scheduler
+  - h3yun-workflow-webapi
+  - ug-engine-workflow-client
+  - ug-workflow-task-executor
+  - ug-workflow-task-executor-chronos
+  - h3yun-engine-infrastructure
+  - h3yun-engine-orm
+  - h3yun-org-sdk
+  - ug-engine-ha-client
+  - h3yun-engine-controller
+  - ug-engine-multi-tenant-client
+  - h3yun-engine-config-sync
+  - h3yun-engine-dbschema-initial
+  - h3yun-engine-directory
+  - h3yun-engine-register
+  - ug-engine-allocate-algorithm
+  - ug-engine-archive-schedule
+  - ug-inactivecorp-scanner
+  - ug-sql-importexport
+  - h3yun-app-integration-dispatcher
+  - h3yun-engine-admin-webapi
+  - h3yun-engine-admin-webapp
+  - h3yun-engine-upgrade
+  - ug-engine-autotest
+  - h3yun-engine-dao

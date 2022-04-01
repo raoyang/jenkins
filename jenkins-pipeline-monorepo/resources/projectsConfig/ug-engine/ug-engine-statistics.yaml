@@ -1,0 +1,13 @@
+codeType: java
+codeDir: statistics/ug-engine-statistics
+buildDir: statistics/ug-engine-statistics
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-engine-statistics-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - statistics/build.gradle
+  - statistics/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - ug-engine-statistics-client

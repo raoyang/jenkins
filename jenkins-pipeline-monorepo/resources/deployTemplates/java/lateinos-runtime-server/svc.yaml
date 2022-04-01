@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: #deployName#
+    deploy-code-type: #codeType#
+    deploy-base-template: #deployBaseTemplate#
+  name: #deployName#-svc
+  namespace: #deployNamespace#
+spec:
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 8443
+  selector:
+    app: #deployName#
+  type: ClusterIP

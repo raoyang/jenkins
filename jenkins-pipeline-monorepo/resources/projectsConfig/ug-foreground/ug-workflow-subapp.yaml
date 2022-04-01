@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-pc-apps/ug-workflow-subapp
+buildDir: ug-pc-apps/ug-workflow-subapp
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

@@ -1,0 +1,15 @@
+codeType: dotnet
+codeDir: core/ug-engine-metadata-dao/src
+buildDir: core/ug-engine-metadata-dao/src/Host/Ug.Engine.Metadata.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: ug-engine-metadata-dao-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj
+cmdbConfig:
+  - key: 'mongodb.connectionstring'
+    validateType: NOT_BLANK
+    description: '业务引擎元数据mongodb的链接'
+  - key: 'mongodb.databasename'
+    validateType: NOT_BLANK
+    description: '业务引擎元数据对应的数据库名称'

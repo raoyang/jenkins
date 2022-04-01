@@ -1,0 +1,46 @@
+globalConfig:
+  deliveryGroup: ug-basic
+  defaultArgocdGitUrl: https://gitlab.h3yun.net/ug-global/ug-basic-argo/ug-basic-argo-code/ug-basic-argocd-yaml.git
+  defaultRegistry: image-acr.puboa.h3yun.net
+  defaultImagePath: ug-registry
+  dingTalkAccessToken: b70861730ea076c646e5f110353649982f886ddaa8c3841618ea2f918b90774c
+  dingTalkSecret: SECbbb8bae99506e86bbb20ac81875b3d367a2fd7a036103abc218b6ac8b13f7cca
+  gitlabUrl: https://gitlab.h3yun.net
+  gitlabProjectPath: ug-global/ug-basic-monorepo
+  gitlabApiTokenId: UgBasicMonorepoGitlabApiToken
+  gitlabJenkinsMultibranchHookBaseUrl: http://jenkins-monorepo.puboa.h3yun.net:8443/project/ug-basic-monorepo/ug-basic-monorepo-multibranch
+  gitlabJenkinsMultibranchHookSecret: 621fc137939559c9b0cb0d442c5d622c
+  userDetails:
+    lijq:
+      telephone: 13802551512
+      dingTalkAccessToken: b70861730ea076c646e5f110353649982f886ddaa8c3841618ea2f918b90774c
+      dingTalkSecret: SECbbb8bae99506e86bbb20ac81875b3d367a2fd7a036103abc218b6ac8b13f7cca
+  teamLeader: lijq
+projects:
+  - h3yun-corp-dao
+  - h3yun-contacts-webapi
+  - h3yun-org-dao
+  - h3yun-corp-integrate-webapi
+  - h3yun-corp-invitation-dao
+  - h3yun-corp-register
+  - h3yun-org-synchronizer
+  - h3yun-org-webapi
+  - ug-ding-entry
+  - ug-entry-config
+  - ug-feature-gates-dao
+  - ug-profile-picture-compressor
+  - ug-wechat-official-entry
+  - h3yun-user-dao
+  - h3yun-token-dao
+  - h3yun-user-captcha
+  - h3yun-idaas-webapi
+  - h3yun-user-webapi
+  - h3yun-user-register
+  - ug-token-dao
+  - h3yun-app-letter-dao
+  - h3yun-app-letter-webapi
+  - h3yun-email
+  - h3yun-notice-daemon
+  - h3yun-shortmsg
+  - ug-thirdparty-msgpush
+  - ug-shortlink-dao

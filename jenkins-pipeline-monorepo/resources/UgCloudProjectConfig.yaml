@@ -1,0 +1,21 @@
+globalConfig:
+  deliveryGroup: ug-cloud
+  defaultArgocdGitUrl: https://gitlab.h3yun.net/ug-global/ug-cloud-argo/ug-cloud-argo-code/ug-cloud-argocd-yaml.git
+  defaultRegistry: image-acr.puboa.h3yun.net
+  defaultImagePath: ug-registry
+  dingTalkAccessToken: 2b3aa47313ac4a05e4496938955c3d9578652e83406ac0c93878543cba8b27de
+  dingTalkSecret: SEC2628fdc8c7eeac86422ef9cc2131201bca68c877e02561dcd78754276de9b9d4
+  gitlabUrl: https://gitlab.h3yun.net
+  gitlabProjectPath: ug-global/ug-cloud-monorepo
+  gitlabApiTokenId: UgBasicMonorepoGitlabApiToken
+  gitlabJenkinsMultibranchHookBaseUrl: http://jenkins-monorepo.puboa.h3yun.net:8443/project/ug-cloud-monorepo/ug-cloud-monorepo-multibranch
+  gitlabJenkinsMultibranchHookSecret: 621fc137939559c9b0cb0d442c5d622c
+  userDetails:
+    lijq:
+      telephone: 13802551512
+      dingTalkAccessToken: 2b3aa47313ac4a05e4496938955c3d9578652e83406ac0c93878543cba8b27de
+      dingTalkSecret: SEC2628fdc8c7eeac86422ef9cc2131201bca68c877e02561dcd78754276de9b9d4
+  teamLeader: lijq
+projects:
+  - ug-cloud-api-gateway
+  - ug-cloud-qa-autotest

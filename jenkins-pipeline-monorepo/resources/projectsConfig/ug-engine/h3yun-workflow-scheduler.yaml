@@ -1,0 +1,35 @@
+codeType: java
+codeDir: workflow/h3yun-workflow-scheduler
+buildDir: workflow/h3yun-workflow-scheduler
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: h3yun-workflow-scheduler-statefulset.yaml
+deployBaseTemplate: xxljob-executor
+rootSettings:
+  - workflow/build.gradle
+  - workflow/settings.gradle
+projectMaintainer: wangj
+dependencies:
+  - h3yun-workflow-scheduler
+cmdbConfig:
+  - key: 'xxl.job.admin.addresses'
+    validateType: NOT_BLANK
+    description: 'xxl-job服务地址'
+  - key: 'xxl.job.executor.appname'
+    validateType: NOT_BLANK
+    description: 'xxl-job执行器服务名称'
+  - key: 'xxl.job.executor.logpath'
+    validateType: NOT_BLANK
+    description: 'xxl-job执行器日志地址'
+  - key: 'xl.job.executor.logretentiondays'
+    validateType: NOT_BLANK
+    description: 'xxl-job执行器日志保留天数'
+  - key: 'xxl.job.executor.port'
+    validateType: NOT_BLANK
+    description: 'xxl-job执行器端口'
+  - key: 'xxl.job.executor.svc.group'
+    validateType: NOT_BLANK
+    description: 'xxl-job执行器所在命名空间'
+  - key: 'xxl.job.executor.svc.name'
+    validateType: NOT_BLANK
+    description: 'xxl-job执行器svc名称'

@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "source": "statefulset.yaml",
+      "target": "#deployName#-statefulset.yaml"
+    },
+    {
+      "source": "svc.yaml",
+      "target": "#deployName#-svc.yaml"
+    }
+  ]
+}

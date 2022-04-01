@@ -1,0 +1,11 @@
+codeType: java
+codeDir: notice/h3yun-email
+buildDir: notice/h3yun-email
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-email-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - notice/build.gradle
+  - notice/settings.gradle
+projectMaintainer: lijq

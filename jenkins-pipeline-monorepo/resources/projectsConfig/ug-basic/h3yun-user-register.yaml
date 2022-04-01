@@ -1,0 +1,11 @@
+codeType: java
+codeDir: user/h3yun-user-register
+buildDir: user/h3yun-user-register
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-user-register-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - user/build.gradle
+  - user/settings.gradle
+projectMaintainer: lijq

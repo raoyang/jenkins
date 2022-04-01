@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: #deployName#
+    lateinos-apptype: service
+    deploy-code-type: #codeType#
+    deploy-base-template: #deployBaseTemplate#
+  name: #deployName#-statefulset
+  namespace: #deployNamespace#
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: #deployReplicas#
+  selector:
+    matchLabels:
+      argocd-app-name: #deployName#-statefulset
+      argocd-app-namespace:  #deployNamespace#
+  serviceName: #deployName#-svc
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: 'false'
+      labels:
+        app: #deployName#
+        argocd-app-name: #deployName#-statefulset
+        argocd-app-namespace: #deployNamespace#
+        lateinos-apptype: service
+        deploy-code-type: #codeType#
+        deploy-base-template: #deployBaseTemplate#
+        image-tag: to-replace
+    spec:
+      containers:
+        - env:
+            - name: JAVA_OPTS
+              value: '-server '
+            - name: JAVA_ARGS
+          image:
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /v1/HeartBeat/ping
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: #deployName#
+          ports: #deployImage#
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 9999
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /v1/HeartBeat/ping
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+      dnsPolicy: ClusterFirst
+      hostIPC: true
+      terminationGracePeriodSeconds: 30
+  updateStrategy:
+    type: RollingUpdate

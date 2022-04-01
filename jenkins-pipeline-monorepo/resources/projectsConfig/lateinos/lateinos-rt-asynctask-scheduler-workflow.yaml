@@ -1,0 +1,11 @@
+codeType: java
+codeDir: backend/rt-asynctask/lateinos-rt-asynctask-scheduler
+buildDir: backend/rt-asynctask/lateinos-rt-asynctask-scheduler
+deployBaseTemplate: lateinos-rt-asynctask-scheduler
+deployImageName: lateinos-rt-asynctask-scheduler
+deployYamlFileName: lateinos-rt-asynctask-scheduler-workflow-deploy.yaml
+deployVariables:
+  - key: 'scheduleCode'
+    value: 'scheduler-workflow'
+dependencies:
+  - lateinos-rt-asynctask-scheduler

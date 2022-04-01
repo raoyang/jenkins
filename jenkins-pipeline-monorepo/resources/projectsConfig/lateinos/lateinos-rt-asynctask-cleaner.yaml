@@ -1,0 +1,27 @@
+codeType: java
+codeDir: backend/rt-asynctask/lateinos-rt-asynctask-cleaner
+buildDir: backend/rt-asynctask/lateinos-rt-asynctask-cleaner
+buildType: docker
+buildBaseImage: jdk11
+deployBaseTemplate: cronjob
+deployVariables:
+  - key: 'ativeDeadlineSeconds'
+    value: '3600'
+  - key: 'schedule'
+    value: '0 4 * * *'
+deployYamlFileName: lateinos-rt-asynctask-cleaner-cronjob.yaml
+rootSettings:
+  - backend/rt-asynctask/build.gradle
+  - backend/rt-asynctask/settings.gradle
+projectMaintainer: linys
+cmdbConfig:
+  - key: 'db.lateinos.password'
+    validateType: NOT_BLANK
+    description: '异步任务存储DB密码'
+  - key: 'db.lateinos.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '异步任务存储DB的连接地址'
+  - key: 'db.lateinos.username'
+    validateType: NOT_BLANK
+    description: '异步任务存储DB的连接用户名'

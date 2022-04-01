@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-mobile-apps/ug-mobile-main
+buildDir: ug-mobile-apps/ug-mobile-main
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

@@ -1,0 +1,11 @@
+codeType: java
+codeDir: user/ug-token-dao
+buildDir: user/ug-token-dao
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-token-dao-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - user/build.gradle
+  - user/settings.gradle
+projectMaintainer: lijq

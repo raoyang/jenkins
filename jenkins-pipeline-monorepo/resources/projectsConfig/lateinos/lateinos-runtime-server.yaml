@@ -1,0 +1,134 @@
+codeType: java
+codeDir: backend/runtime-server/lateinos-runtime-server
+buildDir: backend/runtime-server/lateinos-runtime-server
+buildType: docker
+buildBaseImage: jdk11
+deployBaseTemplate: lateinos-runtime-server
+deployYamlFileName: lateinos-runtime-server-deploy.yaml
+rootSettings:
+  - backend/runtime-server/build.gradle
+  - backend/runtime-server/settings.gradle
+dependencies:
+  - lateinos-runtime-server-client
+projectMaintainer: linys
+cmdbConfig:
+  - key: '@db.id-maker.password'
+    validateType: NOT_BLANK
+    description: "id-maker数据库连接密码"
+  - key: '@db.id-maker.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: "id-maker数据库连接地址"
+  - key: '@db.id-maker.username'
+    validateType: NOT_BLANK
+    description: "id-maker数据库连接用户名"
+  - key: 'db.lateinos-env.password'
+    validateType: NOT_BLANK
+    description: "开天环境区分型数据库连接密码"
+  - key: 'db.lateinos-env.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '开天环境区分型数据库连接地址'
+  - key: 'db.lateinos-env.username'
+    validateType: NOT_BLANK
+    description: '开天环境区分型数据库连接用户名'
+  - key: '@db.lateinos-main.password'
+    validateType: NOT_BLANK
+    description: '开天主数据库连接密码'
+  - key: '@db.lateinos-main.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '开天主数据库连接地址'
+  - key: '@db.lateinos-main.username'
+    validateType: NOT_BLANK
+    description: '开天主数据库连接用户名'
+  - key: '@k8s.image.pull-secret.template'
+    validateType: NOT_BLANK
+    description: '镜像库dockercfg的k8s的yaml模版'
+  - key: '@k8s.oauth.token'
+    validateType: NOT_BLANK
+    description: '连接k8s的master的授权token'
+  - key: '@k8s.secret.templates'
+    validateType: NOT_BLANK
+    description: '每个命名空间均会加载的secret的列表'
+  - key: '@lateinos.rsa.privatekey'
+    validateType: NOT_BLANK
+    description: '开天加密的密钥'
+  - key: '@lbs.gd.key'
+    validateType: NOT_BLANK
+    description: '高德地图API的KEY'
+  - key: '@lbs.qq.key'
+    validateType: NOT_BLANK
+    description: '腾讯地图API的KEY'
+  - key: '@lbs.qq.secret.key'
+    validateType: NOT_BLANK
+    description: '腾讯地图API的Secret'
+  - key: '@ldap.host'
+    validateType: NOT_BLANK
+    description: 'LDAP服务器地址'
+  - key: '@ldap.search-base-dn'
+    validateType: REGEX
+    validateRule: '[a-zA-Z0-9]+=\S+(,[a-zA-Z0-9]+=\S+)*'
+    description: '用户查询的基础DN'
+  - key: '@ldap.password'
+    validateType: NOT_BLANK
+    description: '公司LDAP连接的密码'
+  - key: '@ldap.bind-dn'
+    validateType: REGEX
+    validateRule: '[a-zA-Z0-9]+=\S+(,[a-zA-Z0-9]+=\S+)*'
+    description: '鉴权所需的DN'
+  - key: 'main-server.enabled'
+    validateType: REGEX
+    validateRule: 'true|false'
+    description: '是否启用主server'
+  - key: 'server.ssl.enabled'
+    validateType: REGEX
+    validateRule: 'true|false'
+    description: '是否开启https，k8s认证需要'
+  - key: 'lateinos.user.admin'
+    validateType: NOT_BLANK
+    description: '初始管理员用户列表，逗号分割'
+  - key: 'lateinos.user.root'
+    validateType: NOT_BLANK
+    descritpion: '初始root用户列表，逗号分割'
+  - key: 'logger.default-level'
+    validateType: REGEX
+    validateRule: 'log_all|no_trace|no_debug|no_info|no_warn|no_error|no_fatal'
+    description: '默认的日志等级'
+  - key: 'schedule.logger-reset.cron'
+    validateType: NOT_BLANK
+    description: '日志等级重置的cron表达式'
+  - key: 'logstash.deployment.container.image'
+    validateType: NOT_BLANK
+    description: '日志收集的LogStash的镜像版本'
+  - key: '@zk.server.url'
+    validateType: NOT_BLANK
+    description: 'zk服务器地址'
+  - key: '@k8s.master.url'
+    validateType: NOT_BLANK
+    description: 'k8s master的连接地址'
+  - key: '@k8s.webhook.ca-bundle'
+    validateType: NOT_BLANK
+    description: '配置在k8s webhook的资源中所需的ca证书'
+  - key: 'lbs.sync.enabled'
+    validateType: REGEX
+    validateRule: 'true|false'
+    description: '地址库同步是否开启'
+  - key: 'server.global-duty-lock.enabled'
+    validateType: REGEX
+    validateRule: 'true'
+    description: '全局锁是否开启，实际集群环境应该设置为true'
+  - key: 'server.env-duty-lock.enabled'
+    validateType: REGEX
+    validateRule: 'true'
+    description: '虚拟环境锁是否开启，实际集群环境应该设置为true'
+route:
+  - serviceName: lateinos-runtime-server
+  - serviceName: lateinos-redis-config
+  - serviceName: lateinos-distributedlock-config
+  - serviceName: lateinos-fs-config
+  - serviceName: lateinos-logcollector-config
+  - serviceName: lateinos-idmaker-dao
+  - serviceName: lateinos-mq-config
+  - serviceName: lateinos-webadmin-dao
+  - serviceName: lateinos-logstash-deployment

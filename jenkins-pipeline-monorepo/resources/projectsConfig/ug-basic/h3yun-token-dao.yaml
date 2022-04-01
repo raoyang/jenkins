@@ -1,0 +1,11 @@
+codeType: java
+codeDir: user/h3yun-token-dao
+buildDir: user/h3yun-token-dao
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-token-dao-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - user/build.gradle
+  - user/settings.gradle
+projectMaintainer: lijq

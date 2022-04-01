@@ -1,0 +1,4 @@
+codeType: subapp
+codeDir: preprocess/ug-preprocess-webapp
+buildDir: preprocess/ug-preprocess-webapp
+projectMaintainer: chenjun

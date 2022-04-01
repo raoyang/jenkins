@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: #deployName#
+    deploy-code-type: #codeType#
+    deploy-base-template: #deployBaseTemplate#
+  name: #deployName#-deploy
+  namespace: #deployNamespace#
+spec:
+  replicas: #deployReplicas#
+  selector:
+    matchLabels:
+      argocd-app-name: #deployName#-deploy
+      argocd-app-namespace: #deployNamespace#
+  strategy:
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: #deployName#
+        argocd-app-name: #deployName#-deploy
+        argocd-app-namespace: #deployNamespace#
+        deploy-code-type: #codeType#
+        deploy-base-template: #deployBaseTemplate#
+        image-tag: to-replace
+    spec:
+      containers:
+        - image: #deployImage#
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 10
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          name: #deployName#
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 3
+          resources:
+            limits:
+              cpu: 1
+              memory: 512Mi
+            requests:
+              cpu: 0.05
+              memory: 512Mi
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always

@@ -1,0 +1,11 @@
+codeType: java
+codeDir: user/h3yun-user-webapi
+buildDir: user/h3yun-user-webapi
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-user-webapi-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - user/build.gradle
+  - user/settings.gradle
+projectMaintainer: lijq

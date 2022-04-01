@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "source": "cronjob.yaml",
+      "target": "#deployName#-cronjob.yaml"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+codeType: java
+codeDir: notice/h3yun-app-letter-webapi
+buildDir: notice/h3yun-app-letter-webapi
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-app-letter-webapi-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - notice/build.gradle
+  - notice/settings.gradle
+projectMaintainer: lijq

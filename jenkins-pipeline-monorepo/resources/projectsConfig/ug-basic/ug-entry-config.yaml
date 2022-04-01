@@ -1,0 +1,11 @@
+codeType: java
+codeDir: corp/ug-entry-config
+buildDir: corp/ug-entry-config
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-entry-config-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - corp/build.gradle
+  - corp/settings.gradle
+projectMaintainer: lijq

@@ -1,0 +1,37 @@
+globalConfig:
+  deliveryGroup: athena
+  defaultArgocdGitUrl: https://gitlab.h3yun.net/ug-global/athena-argo/athena-argo-code/athena-argocd-yaml.git
+  defaultRegistry: image-acr.puboa.h3yun.net
+  defaultImagePath: ug-registry
+  dingTalkAccessToken: 9bef2b3318c200fb93ccf0e81993adf4352a7bad3e4debea5fb7347a986cadbd
+  dingTalkSecret: SECaa2cdff98089489ffcbbf50001a0704449d013138c1c76f8eb56eb611b92b85a
+  gitlabUrl: https://gitlab.h3yun.net
+  gitlabProjectPath: ug-global/athena-monorepo
+  gitlabApiTokenId: AthenaMonorepoGitLabApiToken
+  gitlabJenkinsMultibranchHookBaseUrl: https://jenkins-monorepo.puboa.h3yun.net:8443/project/athena-monorepo/athena-monorepo-multibranch
+  gitlabJenkinsMultibranchHookSecret: 621fc137939559c9b0cb0d442c5d622c
+  userDetails:
+    wangli:
+      telephone: 15972198354
+      dingTalkAccessToken: f3688b63b60cd8a0d0b81d9cfed71de5bdc561e11a68de31c37e3bd06a159a32
+      dingTalkSecret: SEC5e06d08062e7e70b59a31e5155df760495839900772521bb7d00a9410f564d5c
+    linys:
+      telephone: 18986248252
+      dingTalkAccessToken: 5fae9db2e41323935c51a773c4ac794ab3f85084b92161589f14bce7bfa973f0
+      dingTalkSecret: SECede2f543ab5b9cca8ef608a08502925ccf09060820b5057c38e0da863e380c44
+    meiys:
+      telephone: 15989523303
+      dingTalkAccessToken: 4dad0ff158696832ac54c33991b1f07120279824b45554e224cef5f7cab4784d
+      dingTalkSecret: SECd1123de7a7d029d2774da8f799c994b6d9227c151fa46e49a32f61c661c2371d
+    guojh:
+      telephone: 18512830417
+      dingTalkAccessToken: 4587d2e08250f4f863fd02552f11f4917dfe1b9703cf2000bdea71a6c3c91e6f
+      dingTalkSecret: SECb6c89972ce4d32465867b28bc156e5522c5d153de92b8ec09a2e414f9a281fb1
+  teamLeader: wangli
+projects:
+  - athena-webadmin-server
+  - athena-webadmin-client
+  - athena-manage-webapp
+  - athena-webadmin-gateway
+  - athena-swagger-proxy
+  - athena-swagger-webapp

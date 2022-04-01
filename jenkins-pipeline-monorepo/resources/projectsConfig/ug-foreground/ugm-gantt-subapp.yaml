@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-mobile-apps/ugm-gantt-subapp
+buildDir: ug-mobile-apps/ugm-gantt-subapp
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

@@ -1,0 +1,12 @@
+codeType: java
+codeDir: statistics/ug-engine-activecorp-collector
+buildDir: statistics/ug-engine-activecorp-collector
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-engine-activecorp-collector-deploy.yaml
+deployBaseTemplate: cronjob
+rootSettings:
+  - statistics/build.gradle
+  - statistics/settings.gradle
+projectMaintainer: wangj
+dependencies:

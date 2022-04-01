@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-pc-apps/ug-membermanage-subapp
+buildDir: ug-pc-apps/ug-membermanage-subapp
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

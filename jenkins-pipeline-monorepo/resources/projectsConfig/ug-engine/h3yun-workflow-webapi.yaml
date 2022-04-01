@@ -1,0 +1,8 @@
+codeType: dotnet
+codeDir: workflow/h3yun-workflow-webapi/src
+buildDir: workflow/h3yun-workflow-webapi/src/Host/H3yun.Workflow.Webapi.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: h3yun-workflow-webapi-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj

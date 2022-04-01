@@ -1,0 +1,6 @@
+codeType: polymer
+codeDir: external
+buildDir: external
+projectMaintainer: chenjun
+dependencies:
+  - ug-external-webapp

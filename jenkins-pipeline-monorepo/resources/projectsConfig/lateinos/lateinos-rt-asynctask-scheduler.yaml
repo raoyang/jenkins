@@ -1,0 +1,33 @@
+codeType: java
+codeDir: backend/rt-asynctask/lateinos-rt-asynctask-scheduler
+buildDir: backend/rt-asynctask/lateinos-rt-asynctask-scheduler
+buildType: docker
+buildBaseImage: jdk11
+deployBaseTemplate: lateinos-rt-asynctask-scheduler
+deployYamlFileName: lateinos-rt-asynctask-scheduler-deploy.yaml
+deployVariables:
+  - key: 'scheduleCode'
+    value: 'scheduler-shard1'
+rootSettings:
+  - backend/rt-asynctask/build.gradle
+  - backend/rt-asynctask/settings.gradle
+projectMaintainer: linys
+cmdbConfig:
+  - key: 'db.lateinos.password'
+    validateType: NOT_BLANK
+    description: '异步任务存储DB的密码'
+  - key: 'db.lateinos.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '异步任务存储DB的连接地址'
+  - key: 'db.lateinos.username'
+    validateType: NOT_BLANK
+    description: '异步任务存储DB的用户名'
+  - key: 'redis.config.code'
+    validateType: REGEX
+    validateRule: 'lateinos-rt-asynctask'
+    description: '异步任务Redis中间件的Code'
+redis:
+  - cacheCode: lateinos-rt-asynctask
+
+

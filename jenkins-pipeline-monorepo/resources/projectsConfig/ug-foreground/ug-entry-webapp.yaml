@@ -1,0 +1,4 @@
+codeType: webapp
+codeDir: entry/ug-entry-webapp
+buildDir: entry/ug-entry-webapp
+projectMaintainer: chenjun

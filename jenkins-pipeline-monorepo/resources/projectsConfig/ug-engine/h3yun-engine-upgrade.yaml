@@ -1,0 +1,12 @@
+codeType: dotnet
+codeDir: engine-admin/h3yun-engine-upgrade/src
+buildDir: engine-admin/h3yun-engine-upgrade/src/H3yun.Engine.Upgrade.Host
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: h3yun-engine-upgrade-deploy.yaml
+deployBaseTemplate: cronjob
+rootSettings:
+  - engine-admin/build.gradle
+  - engine-admin/settings.gradle
+projectMaintainer: wangj
+dependencies:

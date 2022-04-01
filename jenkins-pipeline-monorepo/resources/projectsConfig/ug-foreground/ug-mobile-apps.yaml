@@ -1,0 +1,8 @@
+codeType: polymer
+codeDir: ug-mobile-apps
+buildDir: ug-mobile-apps
+projectMaintainer: chenjun
+dependencies:
+  - ug-mobile-main
+  - ugm-tableview-subapp
+  - ugm-gantt-subapp

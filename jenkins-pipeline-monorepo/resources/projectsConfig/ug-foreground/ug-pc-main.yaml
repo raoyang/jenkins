@@ -1,0 +1,6 @@
+codeType: subapp
+codeDir: ug-pc-apps/ug-pc-main
+buildDir: ug-pc-apps/ug-pc-main
+projectMaintainer: chenjun
+dependencies:
+  - lcos-kernel

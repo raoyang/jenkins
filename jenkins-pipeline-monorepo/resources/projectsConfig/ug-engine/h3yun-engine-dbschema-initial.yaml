@@ -1,0 +1,17 @@
+codeType: java
+codeDir: multi-tenant/h3yun-engine-dbschema-initial
+buildDir: multi-tenant/h3yun-engine-dbschema-initial
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-engine-dbschema-initial-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+cmdbConfig:
+  - key: 'directory.allocatable.engine.count'
+    validateType: NOT_BLANK
+    description: '每一次分配引擎的数量'
+

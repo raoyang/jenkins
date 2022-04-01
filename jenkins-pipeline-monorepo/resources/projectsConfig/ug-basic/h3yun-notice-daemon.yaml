@@ -1,0 +1,11 @@
+codeType: java
+codeDir: notice/h3yun-notice-daemon
+buildDir: notice/h3yun-notice-daemon
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: h3yun-notice-daemon-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - notice/build.gradle
+  - notice/settings.gradle
+projectMaintainer: lijq

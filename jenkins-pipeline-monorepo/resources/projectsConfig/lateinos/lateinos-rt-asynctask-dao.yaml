@@ -1,0 +1,48 @@
+codeType: java
+codeDir: backend/rt-asynctask/lateinos-rt-asynctask-dao
+buildDir: backend/rt-asynctask/lateinos-rt-asynctask-dao
+buildType: docker
+buildBaseImage: jdk11
+deployBaseTemplate: stateless-service
+deployYamlFileName: lateinos-rt-asynctask-dao-deploy.yaml
+rootSettings:
+  - backend/rt-asynctask/build.gradle
+  - backend/rt-asynctask/settings.gradle
+projectMaintainer: linys
+cmdbConfig:
+  - key: 'db.lateinos.password'
+    validateType: NOT_BLANK
+    description: '异步任务存储的DB密码'
+  - key: 'db.lateinos.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '异步任务存储DB的连接地址'
+  - key: 'db.lateinos.username'
+    validateType: NOT_BLANK
+    description: '异步任务处处DB访问用户名'
+  - key: 'es.host'
+    validateType: NOT_BLANK
+    description: '异步任务详情ES的连接地址'
+  - key: 'es.password'
+    validateType: NOT_BLANK
+    description: '异步任务详情ES的连接密码'
+  - key: 'es.username'
+    validateType: NOT_BLANK
+    description: '异步任务详情ES的连接用户名'
+  - key: 'mq.producer.code'
+    validateType: REGEX
+    validateRule: 'lateinos-rt-asynctask-producer'
+    description: '固定使用的producer的code'
+  - key: 'mq.producer.secret'
+    validateType: NOT_BLANK
+    description: '连接MQ的密码'
+  - key: 'redis.config.code'
+    validateType: REGEX
+    validateRule: 'lateinos-rt-asynctask'
+    description: 'redis中间件配置的code'
+rocketMQ:
+  - type: producer
+    topic: lateinos-rt-asynctask
+    code: lateinos-rt-asynctask-producer
+redis:
+  - cacheCode: lateinos-rt-asynctask

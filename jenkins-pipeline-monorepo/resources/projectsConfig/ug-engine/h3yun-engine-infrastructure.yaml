@@ -1,0 +1,7 @@
+codeType: dotnet
+codeDir: sdk/dotnet/h3yun-engine-infrastructure
+buildDir: sdk/dotnet/h3yun-engine-infrastructure
+buildType: NuGet
+rootSettings:
+  - sdk/dotnet/h3yun-engine-infrastructure/H3yun.Engine.Infrastructure.sln
+projectMaintainer: wangj

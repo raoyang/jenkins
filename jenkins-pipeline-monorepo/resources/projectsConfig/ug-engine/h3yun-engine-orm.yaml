@@ -1,0 +1,7 @@
+codeType: dotnet
+codeDir: sdk/dotnet/h3yun-engine-orm
+buildDir: sdk/dotnet/h3yun-engine-orm/H3.ORM
+buildType: NuGet
+rootSettings:
+  - sdk/dotnet/h3yun-engine-orm/H3.ORM.sln
+projectMaintainer: wangj

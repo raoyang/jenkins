@@ -1,0 +1,41 @@
+codeType: java
+codeDir: backend/gateway/lateinos-api-gateway
+buildDir: backend/gateway/lateinos-api-gateway
+buildType: docker
+buildBaseImage: jdk8AndOpenresty
+deployYamlFileName: lateinos-api-gateway-deploy.yaml
+deployBaseTemplate: openresty-loadbalancer
+deployVariables:
+  - key: 'nginxLogDir'
+    value: '/tmp/lateinos-api-gateway/logs'
+rootSettings:
+  - backend/gateway/build.gradle
+  - backend/gateway/settings.gradle
+projectMaintainer: linys
+cmdbConfig:
+  - key: 'fs.ug.host'
+    validateType: NOT_BLANK
+    description: '有格文件服务支持的域名配置'
+  - key: 'fs.ug.host.ssl.crt.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: '有格文件服务域名证书CRT对应的配置中心所在的路径'
+  - key: 'fs.ug.host.ssl.key.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: '有格文件服务域名证书KEY对应的配置中心所在的路径'
+  - key: 'controller.agent.enabled'
+    validateType: REGEX
+    validateRule: 'true|false'
+    description: '是否启用controller agent的代理'
+  - key: 'controller.agent.host'
+    validateType: NOT_BLANK
+    description: 'controller agent对外暴露的域名'
+  - key: 'controller.agent.host.ssl.crt.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: 'controller agent的域名证书CRT所在配置中心的路径'
+  - key: 'controller.agent.host.ssl.key.path'
+    validateType: REGEX
+    validateRule: '^@/.*$'
+    description: 'controller agent的域名证书KEY所在配置中心的路径'

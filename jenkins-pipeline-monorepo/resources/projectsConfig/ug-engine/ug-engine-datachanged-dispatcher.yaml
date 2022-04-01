@@ -1,0 +1,46 @@
+codeType: dotnet
+codeDir: datachanged/ug-engine-datachanged-dispatcher/src
+buildDir: datachanged/ug-engine-datachanged-dispatcher/src/Application/Ug.Engine.Datachanged.Dispatcher.Host.Api
+buildType: docker
+buildBaseImage: 3.1
+deployYamlFileName: ug-engine-datachanged-dispatcher-deploy.yaml
+deployBaseTemplate: stateless-service
+projectMaintainer: wangj
+cmdbConfig:
+  - key: 'mongodb.connectionstring'
+    validateType: REGEX
+    validateRule: '^mongodb://root:.+'
+    description: '数据变更历史记录存储的mongodb地址'
+  - key: 'mongodb.dadtabasename'
+    validateType: NOT_BLANK
+    description: '数据变更历史记录的数据库名'
+  - key: 'rocketmq.consumer.code'
+    validateType: NOT_BLANK
+    description: '数据变更消费者编码'
+  - key: 'rocketmq.consumer.messagetype'
+    validateType: NOT_BLANK
+    description: '数据变更消费者消息队列类型'
+  - key: 'rocketmq.consumer.secret'
+    validateType: NOT_BLANK
+    description: '数据变更消费者Secret'
+  - key: 'rocketmq.consumer.tag'
+    validateType: NOT_BLANK
+    description: '数据变更消费者Tag'
+  - key: 'rocketmq.producer.bosort.code'
+    validateType: NOT_BLANK
+    description: '业务中台数据排序生产者编码'
+  - key: 'rocketmq.producer.bosort.messagetype'
+    validateType: NOT_BLANK
+    description: '业务中台数据排序生产者消息队列类型'
+  - key: 'rocketmq.producer.bosort.secret'
+    validateType: NOT_BLANK
+    description: '业务中台数据排序生产者Secret'
+  - key: 'rocketmq.producer.datachanged.code'
+    validateType: NOT_BLANK
+    description: '数据变更历史排序生产者编码'
+  - key: 'rocketmq.producer.datachanged.messagetype'
+    validateType: NOT_BLANK
+    description: '数据变更历史生产者消息队列类型'
+  - key: 'rocketmq.producer.datachanged.secret'
+    validateType: NOT_BLANK
+    description: '数据变更历史生产者Secret'

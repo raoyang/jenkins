@@ -1,0 +1,34 @@
+globalConfig:
+  deliveryGroup: ug-foreground
+  dingTalkAccessToken: 11875d13e015d9db474d892d4dac81b2d78404c054723d0ca031d1d420937e0a
+  dingTalkSecret: SEC7cdf087150299d078f06f757dd682419ae7fd23a88114c93b0b36ce455040a17
+  gitlabUrl: https://gitlab.h3yun.net
+  gitlabProjectPath: ug-global/ug-foreground-monorepo
+  gitlabApiTokenId: UgForegroundMonorepoGitLabApiToken
+  # GITLAB部署的集群网络禁用了443，所有443端口访问需显示声明为8443
+  gitlabJenkinsMultibranchHookBaseUrl: https://jenkins-monorepo.puboa.h3yun.net:8843/project/ug-foreground-monorepo/ug-foreground-monorepo-multibranch
+  gitlabJenkinsMultibranchHookSecret: 621fc137939559c9b0cb0d442c5d622c
+  userDetails:
+    chenjun:
+      telephone: 13670192943
+      dingTalkAccessToken: fcd1d5a522d04848ee0ab8d963beb237485e90a44575a02a842c80e6636b2ff9
+      dingTalkSecret: SECb69d2e833ffb59c4c919059bb4becd758a6d6551780eea4030af98f33e7b7781
+  teamLeader: chenjun
+projects:
+  - ug-entry-webapp
+  - ug-preprocess-webapp
+  - lcos-kernel
+  - ug-pc-apps
+  - ug-pc-main
+  - ug-workflow-subapp
+  - ug-membermanage-subapp
+  - ug-tableview-subapp
+  - ug-formview-subapp
+  - ug-kanban-subapp
+  - ug-gantt-subapp
+  - ug-mobile-apps
+  - ug-mobile-main
+  - ugm-gantt-subapp
+  - ugm-tableview-subapp
+  - external
+  - ug-external-webapp

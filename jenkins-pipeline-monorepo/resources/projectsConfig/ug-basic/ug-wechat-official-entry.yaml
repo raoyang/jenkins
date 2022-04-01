@@ -1,0 +1,11 @@
+codeType: java
+codeDir: corp/ug-wechat-official-entry
+buildDir: corp/ug-wechat-official-entry
+buildType: docker
+buildBaseImage: jdk8
+deployYamlFileName: ug-wechat-official-entry-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - corp/build.gradle
+  - corp/settings.gradle
+projectMaintainer: lijq

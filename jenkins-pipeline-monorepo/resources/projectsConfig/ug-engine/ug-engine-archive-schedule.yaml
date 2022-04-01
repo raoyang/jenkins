@@ -1,0 +1,38 @@
+codeType: java
+codeDir: multi-tenant/ug-engine-archive-schedule
+buildDir: multi-tenant/ug-engine-archive-schedule
+buildType: docker
+buildBaseImage: jdk11
+deployYamlFileName: ug-engine-archive-schedule-deploy.yaml
+deployBaseTemplate: stateless-service
+rootSettings:
+  - multi-tenant/build.gradle
+  - multi-tenant/settings.gradle
+projectMaintainer: wangj
+dependencies:
+cmdbConfig:
+  - key: 'archive.export.sql.timeout'
+    validateType: NOT_BLANK
+    description: '归档文件导出sql的超时时间'
+  - key: 'check.sql.data.upgrade.timeout'
+    validateType: NOT_BLANK
+    description: 'sql数据升级超时时间'
+  - key: 'h3yun.engine.archive.schedule.archive.secret'
+    validateType: NOT_BLANK
+    description: '归档消费者密钥'
+  - key: 'h3yun.engine.archive.schedule.recover.secret'
+    validateType: NOT_BLANK
+    description: '恢复消费者密钥'
+  - key: 'spring.datasource.password'
+    validateType: NOT_BLANK
+    description: '归档记录数据库密码'
+  - key: 'spring.datasource.url'
+    validateType: REGEX
+    validateRule: '^jdbc:.+:.+/.+'
+    description: '归档记录数据库jdbc地址'
+  - key: 'spring.datasource.username'
+    validateType: NOT_BLANK
+    description: '归档记录记录数据库登录用户名'
+  - key: 'recover.import.sql.timeout'
+    validateType: NOT_BLANK
+    description: '恢复企业，导入sql的超时时间'

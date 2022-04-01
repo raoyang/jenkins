@@ -1,0 +1,7 @@
+codeType: dotnet
+codeDir: sdk/dotnet
+buildDir: sdk/dotnet/lateinos-all-pack/src/Lateinos.All.Pack
+buildType: NuGet
+rootSettings:
+  - sdk/dotnet/Lateinos.All.Pack.sln
+projectMaintainer: linys

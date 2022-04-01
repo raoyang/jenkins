@@ -1,0 +1,7 @@
+codeType: dotnet
+codeDir: sdk/dotnet/h3yun-org-sdk
+buildDir: sdk/dotnet/h3yun-org-sdk/orgService-client
+buildType: NuGet
+rootSettings:
+  - sdk/dotnet/h3yun-org-sdk/orgService-client.sln
+projectMaintainer: wangj
